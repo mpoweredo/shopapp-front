@@ -24,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     overflow-wrap: anywhere;
     white-space: pre-wrap;
+    background-color: ${({ theme }) => theme.color.black900};
   }
   
   a {

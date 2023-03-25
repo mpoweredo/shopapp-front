@@ -1,15 +1,13 @@
 import type { AppProps } from 'next/app'
-import { Public_Sans } from 'next/font/google'
 import Providers from '@/providers/Providers'
-
-const publicSans = Public_Sans({ subsets: ['latin'] })
+import Layout from '@/templates/Layout/Layout'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Providers>
-      <main className={publicSans.className}>
+      <Layout>
         <Component {...pageProps} />
-      </main>
+      </Layout>
     </Providers>
   )
 }
