@@ -1,8 +1,4 @@
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['vietnamese'] })
-
-export default function Home() {
+const LandingPage = () => {
   return (
     <div>
       <h1>Hello world</h1>
@@ -11,3 +7,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default LandingPage
