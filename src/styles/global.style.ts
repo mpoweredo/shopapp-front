@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 10px;
     height: 100%;
     height: -webkit-fill-available;
+    color: ${({ theme }) => theme.color.black20};
   }
   
   *, html {
