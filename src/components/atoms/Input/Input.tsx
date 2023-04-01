@@ -24,8 +24,7 @@ const Input = ({
     return inputMap[type]
   }, [type])
 
-  console.log(error)
-
+  if (!InputElement) return <></>
   return (
     <InputElement
       {...inputProps}
