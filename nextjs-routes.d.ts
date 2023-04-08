@@ -7,6 +7,7 @@
 declare module "nextjs-routes" {
   export type Route =
     | StaticRoute<"/">
+    | StaticRoute<"/signin">
     | StaticRoute<"/signup">;
 
   interface StaticRoute<Pathname> {

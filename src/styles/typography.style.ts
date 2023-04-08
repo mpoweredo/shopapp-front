@@ -1,5 +1,4 @@
 import { css } from 'styled-components'
-import { media } from './media.style'
 
 export const h1CSS = css`
   font-size: 6.4rem;
@@ -43,21 +42,10 @@ export const pCSS = css`
   line-height: 2rem;
 `
 
-export const buttonCSS = css`
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 2.4rem;
-`
-
-export const inputCSS = css`
-  font-size: 1.6rem;
-  font-weight: 400;
-`
-
-export const placeholderCSS = css`
-  ${inputCSS};
-
-  color: red;
+export const labelCSS = css`
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 2rem;
 `
 
 const typography = css`
@@ -103,10 +91,6 @@ const typography = css`
     color: ${({ theme }) => theme.color.green500};
   }
 
-  button {
-    ${buttonCSS};
-  }
-
   p,
   .p,
   td,
@@ -119,11 +103,12 @@ const typography = css`
 
   label,
   .label {
+    ${labelCSS}
   }
 
   ul {
-    list-style-type: disc;
     list-style-position: inside;
+    list-style-type: disc;
   }
 
   h1,
@@ -144,6 +129,14 @@ const typography = css`
 
   strong {
     font-weight: 600;
+  }
+
+  button {
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
   }
 `
 

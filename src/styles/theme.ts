@@ -82,6 +82,7 @@ declare module 'styled-components' {
 
     spacing: {
       4: string
+      6: string
       8: string
       12: string
       16: string
@@ -173,7 +174,7 @@ export const COLORS: TColors = {
   black200: '#6f6f6f',
   black300: '#616161',
   black400: '#555555',
-  black500: '#464464',
+  black500: '#464646',
   black600: '#3a3a3a',
   black700: '#292929',
   black800: '#1b1b1b',
@@ -185,6 +186,7 @@ const THEME: DefaultTheme = {
 
   spacing: {
     4: '0.4rem',
+    6: '0.6rem',
     8: '0.8rem',
     12: '1.2rem',
     16: '1.6rem',

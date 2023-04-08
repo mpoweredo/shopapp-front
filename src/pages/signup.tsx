@@ -1,7 +1,7 @@
-import Text from '@/atoms/Text/Text'
+import Signup from '@/organisms/Auth/Signup/Signup'
 
 const SignupPage = () => {
-  return <Text type={'h4'}>Hello world</Text>
+  return <Signup />
 }
 
 export default SignupPage

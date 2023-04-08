@@ -30,6 +30,11 @@ export const GlobalStyles = createGlobalStyle`
   
   a {
     text-decoration: none;
+    color: white;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
   }
   
   img {
@@ -41,6 +46,7 @@ export const GlobalStyles = createGlobalStyle`
   button {
     cursor: pointer;
     background-color: transparent;
+    border: transparent;
     padding: 0;
     
     &:disabled, &[disabled] {
@@ -57,10 +63,6 @@ export const GlobalStyles = createGlobalStyle`
     &:focus {
       outline: transparent;
     }
-  }
-  
-  input {
-    background-color: inherit;
   }
 
   textarea {

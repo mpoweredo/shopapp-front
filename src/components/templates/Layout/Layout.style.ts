@@ -13,6 +13,16 @@ export const LayoutWrapper = styled.div`
     flex-direction: column;
     margin: 0 auto;
     max-width: ${({ theme }) => theme.maxWidth.main};
+    padding: 0 1rem;
     width: 100%;
   }
+`
+
+export const Content = styled.div`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
 `
