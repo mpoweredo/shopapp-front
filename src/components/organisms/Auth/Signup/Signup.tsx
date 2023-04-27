@@ -1,31 +1,24 @@
-import { Form, FormikProvider, useFormik } from 'formik'
 import Text from '@/atoms/Text/Text'
-import FormInput from '@/atoms/Input/FormInput'
-import { EInputMapKeys } from '@/atoms/Input/Input.type'
 import Button from '@/atoms/Button/Button'
 import * as S from './Signup.style'
 import * as SLayout from '@/templates/Layout/Layout.style'
+import { EButtonVariants } from '@/atoms/Button/Button.type'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 import {
   ESignupFields,
   SignupValidation,
   TSignupValidationFields,
-} from '@/organisms/Auth/Signup/Signup.validation'
-import { EButtonVariants } from '@/atoms/Button/Button.type'
+} from './Signup.validation'
+import FormInput from '@/atoms/FormInput/FormInput'
+import { EInputMapKeys } from '@/atoms/FormInput/FormInput.type'
 
 const Signup = () => {
-  const testFormik = useFormik<TSignupValidationFields>({
-    initialValues: {
-      [ESignupFields.USERNAME]: '',
-      [ESignupFields.EMAIL]: '',
-      [ESignupFields.PASSWORD]: '',
-      [ESignupFields.CONFIRM_PASSWORD]: '',
-    },
-    validationSchema: SignupValidation,
-    onSubmit: (values) => {
-      console.log(values)
-      console.log('asd')
-    },
+  const { handleSubmit, control } = useForm<TSignupValidationFields>({
+    resolver: yupResolver(SignupValidation),
   })
+
+  const onSubmit = handleSubmit((values) => console.log(values))
 
   return (
     <SLayout.Content>
@@ -33,48 +26,68 @@ const Signup = () => {
         <Text type={'h4'} styleType={'h3'}>
           Sign up
         </Text>
-        <FormikProvider value={testFormik}>
-          <Form>
-            <S.InputsWrapper>
-              <FormInput
-                label={'Username'}
-                inputProps={{
-                  name: ESignupFields.USERNAME,
-                }}
-                type={EInputMapKeys.TEXT}
-              />
+        <form onSubmit={onSubmit}>
+          <S.InputsWrapper>
+            <FormInput
+              controllerProps={{
+                name: ESignupFields.USERNAME,
+                control,
+                rules: {
+                  required: true,
+                },
+              }}
+              label={'Username'}
+              type={EInputMapKeys.TEXT}
+            />
 
-              <FormInput
-                label={'Email'}
-                inputProps={{
-                  type: 'email',
-                  name: ESignupFields.EMAIL,
-                }}
-                type={EInputMapKeys.TEXT}
-              />
+            <FormInput
+              label={'Email'}
+              controllerProps={{
+                name: ESignupFields.EMAIL,
+                control,
+                rules: {
+                  required: true,
+                },
+              }}
+              inputProps={{
+                type: 'email',
+              }}
+              type={EInputMapKeys.TEXT}
+            />
 
-              <FormInput
-                label={'Password'}
-                inputProps={{
-                  type: 'password',
-                  name: ESignupFields.PASSWORD,
-                }}
-                type={EInputMapKeys.TEXT}
-              />
+            <FormInput
+              label={'Password'}
+              controllerProps={{
+                name: ESignupFields.PASSWORD,
+                control,
+                rules: {
+                  required: true,
+                },
+              }}
+              inputProps={{
+                type: 'password',
+              }}
+              type={EInputMapKeys.TEXT}
+            />
 
-              <FormInput
-                label={'Confirm password'}
-                inputProps={{
-                  type: 'password',
-                  name: ESignupFields.CONFIRM_PASSWORD,
-                }}
-                type={EInputMapKeys.TEXT}
-              />
-            </S.InputsWrapper>
+            <FormInput
+              label={'Confirm password'}
+              controllerProps={{
+                name: ESignupFields.CONFIRM_PASSWORD,
+                control,
+                rules: {
+                  required: true,
+                },
+              }}
+              inputProps={{
+                type: 'password',
+              }}
+              type={EInputMapKeys.TEXT}
+            />
+          </S.InputsWrapper>
 
-            <Button type={'submit'}>Sign up</Button>
-          </Form>
-        </FormikProvider>
+          <Button type={'submit'}>Sign up</Button>
+        </form>
 
         <Text type={'p'} styleType={'p'}>
           Already have an account?{' '}

@@ -9,7 +9,7 @@ enum ESignupFields {
 
 const SignupValidation = object({
   [ESignupFields.USERNAME]: string().min(5).required(),
-  [ESignupFields.EMAIL]: string().email(),
+  [ESignupFields.EMAIL]: string().email().required(),
   [ESignupFields.PASSWORD]: string().min(5).required(),
   [ESignupFields.CONFIRM_PASSWORD]: string()
     .required()

@@ -36,7 +36,12 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link
+            href='https://fonts.googleapis.com/icon?family=Material+Icons+Round'
+            rel='stylesheet'
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

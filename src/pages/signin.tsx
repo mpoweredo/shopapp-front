@@ -1,5 +1,7 @@
+import Signin from '@/organisms/Auth/Signin/Signin'
+
 const SigninPage = () => {
-  return <h1>hello wolrd</h1>
+  return <Signin />
 }
 
 export default SigninPage
