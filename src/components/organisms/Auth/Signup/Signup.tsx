@@ -12,13 +12,16 @@ import {
 } from './Signup.validation'
 import FormInput from '@/atoms/FormInput/FormInput'
 import { EInputMapKeys } from '@/atoms/FormInput/FormInput.type'
+import { useSignup } from './Signup.api'
 
 const Signup = () => {
   const { handleSubmit, control } = useForm<TSignupValidationFields>({
     resolver: yupResolver(SignupValidation),
   })
 
-  const onSubmit = handleSubmit((values) => console.log(values))
+  const { mutate: signup } = useSignup()
+
+  const onSubmit = handleSubmit((values) => signup(values))
 
   return (
     <SLayout.Content>
@@ -73,7 +76,7 @@ const Signup = () => {
             <FormInput
               label={'Confirm password'}
               controllerProps={{
-                name: ESignupFields.CONFIRM_PASSWORD,
+                name: ESignupFields.PASSWORD_CONFIRM,
                 control,
                 rules: {
                   required: true,

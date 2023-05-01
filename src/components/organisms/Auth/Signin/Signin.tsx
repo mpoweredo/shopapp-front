@@ -13,13 +13,16 @@ import {
 import { useForm } from 'react-hook-form'
 import FormInput from '@/atoms/FormInput/FormInput'
 import { EInputMapKeys } from '@/atoms/FormInput/FormInput.type'
+import { useSignin } from './Signin.api'
 
 const Signin = () => {
   const { handleSubmit, control } = useForm<TSigninValidationFields>({
     resolver: yupResolver(SigninValidation),
   })
 
-  const onSubmit = handleSubmit((values) => console.log(values))
+  const { mutate: signin } = useSignin()
+
+  const onSubmit = handleSubmit((values) => signin(values))
 
   return (
     <SLayout.Content>
