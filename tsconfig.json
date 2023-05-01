@@ -18,6 +18,9 @@
     "paths": {
       "@/styles/*": ["src/styles/*"],
       "@/providers/*": ["src/providers/*"],
+      "@/api/*": ["src/api/*"],
+      "@/types/*": ["src/types/*"],
+      "@/store/*": ["src/store/*"],
 
       "@/atoms/*": ["src/components/atoms/*"],
       "@/molecules/*": ["src/components/molecules/*"],
